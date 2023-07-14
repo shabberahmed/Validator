@@ -2,12 +2,10 @@ import { xpress } from "../models/data.js";
 
 export const oneController=async(req,res)=>{
     const{email,password}=req.body;
-    const x=xpress.findOne({email})
-   const accessToken=jwt.sign(email,process.env.ACCESS)
     try{
         const Data=new xpress({
             email:email,
-            password:password
+            password:password,
         })
         await Data.save()
         res.json({m:"data sent"})
